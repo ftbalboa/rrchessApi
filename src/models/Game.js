@@ -3,12 +3,6 @@ const { DataTypes } = require('sequelize');
 module.exports = (sequelize) => {
 
   sequelize.define('game', {
-    
-    id: {
-      type: DataTypes.BIGINT,
-      allowNull: false,
-      primaryKey: true
-    },
     playerName: {
       type: DataTypes.STRING,
       allowNull: false,
