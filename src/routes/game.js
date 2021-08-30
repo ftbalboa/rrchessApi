@@ -10,10 +10,14 @@ router.post("/", function (req, res) {
   });
 });
 
-router.get("/:idGame", function (req, res) {
-  Game.findOne({ where: { id: req.params.idGame } }).then(function (one) {
-    one ? res.send([{ ...one.dataValues }]) : res.send("not found");
-  });
+router.get("/", function (req, res) {
+  try{
+  Game.findOne({ where: { id: req.query.idGame } }).then(function (one) {
+    one ? res.send({ ...one.dataValues }) : res.send("not found");
+  });}
+  catch(error){
+    console.log(error);
+  }
 });
 
 module.exports = router;
