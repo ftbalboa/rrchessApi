@@ -10,7 +10,6 @@ router.get("/", function (req, res) {
     for(let j = 0; j < len ; j++) forSend.push(i[j])
     return res.send(forSend);
   }
-    if(!req.query.name) return res.send(i);
     i = i.map((v) => ({ ...v.dataValues }));
     if (req.query.name) {
       forSend = i.filter((v) => v.playerName.includes(req.query.name));
